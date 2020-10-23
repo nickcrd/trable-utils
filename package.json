@@ -1,0 +1,51 @@
+{
+  "name": "trable-utils",
+  "version": "0.1.0",
+  "description": "Trable is an indoor localization app based on Bluetooth Low Energy",
+  "author": "nickcrd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickcrd/trable-utils.git"
+  },
+  "bin": {
+    "trable-utils": "./out/cli.js"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run type-check && npm run build:js",
+    "build:js": "babel src --out-dir out --extensions \".ts,.tsx\" --source-maps inline",
+    "build:tests": "babel tests --out-dir tests/out --extensions \".ts,.tsx\" --source-maps inline",
+    "start": "node ./out/cli.js",
+    "test": " mocha -r tests/babel-register.js tests/**/*.ts"
+  },
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-10",
+    "@babel/runtime": "^7.10.5",
+    "dotenv": "^8.2.0",
+    "enquirer": "^2.3.6",
+    "node-config-ts": "^3.1.0",
+    "ora": "^5.1.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^3.9.5",
+    "winston": "^3.3.3",
+    "yargs": "^16.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/node": "^7.10.3",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-typescript": "^7.10.1",
+    "@babel/register": "^7.10.3",
+    "@types/mocha": "^8.0.3",
+    "@types/yargs": "^15.0.8",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "eslint": "^7.4.0",
+    "mocha": "^8.0.1"
+  },
+  "license": "MIT"
+}
